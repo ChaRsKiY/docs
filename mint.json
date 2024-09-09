@@ -1,24 +1,20 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
+  "name": "DealMe",
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#b97375",
+    "light": "#e2dcde",
+    "dark": "#ceb1be",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#ceb1be",
+      "to": "#ceb1be"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "me@charskiy.studio"
     }
   ],
   "topbarCtaButton": {
@@ -33,19 +29,19 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "Changelog",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://localhost:3000/changelog"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://localhost:3000/community"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://localhost:3000/blog"
     }
   ],
   "navigation": [
@@ -75,9 +71,10 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Store",
       "pages": [
         "api-reference/endpoint/get",
+        "api-reference/endpoint/get-all",
         "api-reference/endpoint/create",
         "api-reference/endpoint/delete"
       ]

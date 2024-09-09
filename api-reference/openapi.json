@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
+    "title": "OpenAPI Store",
     "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
     "license": {
       "name": "MIT"
@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/stores": {
       "get": {
         "description": "Returns all plants from the system that the user has access to",
         "parameters": [
@@ -41,7 +41,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Store"
                   }
                 }
               }
@@ -66,7 +66,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/Store"
               }
             }
           },
@@ -74,11 +74,11 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "store response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Store"
                 }
               }
             }
@@ -96,7 +96,44 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/stores/{id}": {
+      "get": {
+        "description": "Gets a single store based on the ID supplied",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of plant to get",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Plant deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Store"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "description": "Deletes a single plant based on the ID supplied",
         "parameters": [
@@ -144,6 +181,22 @@
           },
           "tag": {
             "description": "Tag to specify the type",
+            "type": "string"
+          }
+        }
+      },
+      "Store": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the store",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description of the store",
             "type": "string"
           }
         }
